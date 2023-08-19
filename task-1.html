@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>create element</title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <table id="tbl" >
+            <thead>
+                <th>Course Name</th>
+                <th>Course Number</th>
+                <th>Course Fees</th>
+                <th>Place</th>
+            </thead>
+        </table>
+        <script>
+            let table = document.getElementById('tbl');
+            table.border = 3;
+            let bd = document.createElement('tbody');
+            let courses = [
+                {
+                    name:'HTML',
+                    cno:12345,
+                    cfees:235,
+                    place:'pdp'
+                },
+                {
+                    name:'CSS',
+                    cno:67891,
+                    cfees:567,
+                    place:'pdp'
+                },
+                {
+                    name:'BOOTSTRAP',
+                    cno:23456,
+                    cfees:7656,
+                    place:'pdp'
+                }
+            ]
+            for(let i=0;i<courses.length;++i){
+                let obj = courses[i];
+                let rw = document.createElement('tr');
+                for(let x in obj){
+                    let dt = document.createElement('td');
+                    dt.innerHTML = obj[x];
+                    rw.appendChild(dt);
+                }
+                bd.appendChild(rw);
+            }
+            table.appendChild(bd);
+        </script>
+    </body>
+</html>
